@@ -6,12 +6,13 @@ import pybullet as p
 class sumofIotas(gym.Env):
     metadata = {'render.modes':['human']}
 
-    def __init__(self):
+    def __init__(self,no_of_modules=5):
         p.connect(p.GUI)
         p.resetDebugVisualizerCamera(cameraDistance=1.5, cameraYaw=0, cameraPitch=-40, cameraTargetPosition=[0.55,-0.35,0.2])
         ## These are to be redfined
-        self.action_space = spaces.Box(np.array([-1]*4), np.array([1]*4))
-        self.observation_space = spaces.Box(np.array([-1]*5), np.array([1]*5))
+        self.nom = no_of_modules
+        self.action_space = spaces.Box(low=np.array([0]*self.nom+[-1]*self.nom), high=np.array([1]*self.nom+[1]*self.nom))
+        self.observation_space = spaces.Box()
         
         
         
