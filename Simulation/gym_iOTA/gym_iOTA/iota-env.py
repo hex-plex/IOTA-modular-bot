@@ -2,7 +2,7 @@ import gym
 from gym import error , spaces, utils
 from gym.utils import seeding
 import pybullet as p
-
+from iota_controller import iOTA
 class sumofIotas(gym.Env):
     metadata = {'render.modes':['human']}
 

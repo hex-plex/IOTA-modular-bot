@@ -55,9 +55,12 @@ class iOTA:
 
     
 
+def main():
+    iotas=[]
+    for i in range(n):
+        iota=p.loadURDF('iota.urdf',[i,0,0],p.getQuaternionFromEuler([0,0,0]))
+        iotas.append(iOTA(iota,physicsClient))
 
-iotas=[]
-for i in range(n):
-    iota=p.loadURDF('iota.urdf',[i,0,0],p.getQuaternionFromEuler([0,0,0]))
-    iotas.append(iOTA(iota,physicsClient))
 
+if __name__=="__main__":
+    main()
